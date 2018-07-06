@@ -1,0 +1,44 @@
+{% extends 'mywebsite/base.html' %}
+
+{% block title %}HomePage{% endblock%}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+     {% if recipes_name %}
+     <p>Recipe list is as follows: </p>
+        <ul>
+        {% for recipe in recipes_name %}
+            <li> <a href="{{ recipe.id }}"> {{ recipe.recipe_name }} </a> </li>
+        {% endfor %}
+        </ul>
+     {% else %}
+        <p>No recipe available.</p>
+     {% endif %}
+{% endif %}
+
+
+
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+    <tr>
+        <th>Menu Item Name</th>
+        <th>Category</th>
+        <th>Quantity</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for recipe in recipes_name %}
+    <tr>
+        <td> {{ recipe.recipe_name }}  </td>
+        <td> {{ recipe.menucategory }}  </td>
+        <td> {{ recipe.items_in_stock }}  </td>
+        <td> {{ recipe.price }}  </td>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+

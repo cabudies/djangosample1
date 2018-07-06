@@ -1,0 +1,14 @@
+{% extends 'mywebsite/base.html' %}
+
+{% block content %}
+    <p>Hello, you are in the detail view.</p>
+    <h1>{{ menu.recipe_name }}</h1>
+    <p>Details for {{ menu.recipe_name }} are as follows: </p>
+    <ul>
+        <li> Menu Name : {{ menu.recipe_name }} </li>
+        <li> Menu Category: {{ menu.menucategory }} </li>
+        <li> Items in Stock: {{ menu.items_in_stock }} </li>
+        <li> Price: {{ menu.price }} </li>
+    </ul>
+
+{% endblock %}
